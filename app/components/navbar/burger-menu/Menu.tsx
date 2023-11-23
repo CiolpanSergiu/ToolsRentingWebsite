@@ -5,7 +5,7 @@ import styles from "./Menu.module.scss";
 const Menu = () => {
   return (
     <div
-      className={`w-10 cursor-pointer md:hidden ${styles.menu} absolute right-5 top-6`}
+      className={`w-14 h-10  rounded cursor-pointer md:hidden ${styles.menu} absolute right-3 top-6`}
     >
       <Bar />
       <Bar />

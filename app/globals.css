@@ -20,3 +20,7 @@ body {
   color: rgb(var(--foreground-rgb));
   overflow-y: scroll;
 }
+
+.centered-absolute-text {
+  @apply text-center font-bold absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full;
+}

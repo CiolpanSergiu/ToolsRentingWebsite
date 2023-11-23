@@ -1,14 +1,18 @@
 .menu {
   :nth-child(1) {
-    top: -10px;
+    top: 28px;
+  }
+  :nth-child(2),
+  :nth-child(3) {
+    top: 18px;
   }
   :nth-child(4) {
-    top: 10px;
+    top: 8px;
   }
 
   &:hover {
     :nth-child(1) {
-      transform: translateY(1rem);
+      transform: translateY(-1rem);
       opacity: 0;
     }
     :nth-child(2) {
@@ -18,7 +22,7 @@
       transform: rotate(-45deg);
     }
     :nth-child(4) {
-      transform: translateY(-1rem);
+      transform: translateY(1rem);
       opacity: 0;
     }
   }

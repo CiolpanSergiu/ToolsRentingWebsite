@@ -6,7 +6,10 @@ import Menu from "./burger-menu/Menu";
 
 const Navbar = () => {
   return (
-    <nav className="bg-primary px-4 md:py-4 flex flex-col md:flex-row md:justify-between md:items-centers shadow-gray-300 shadow-lg">
+    <nav
+      id="navbar"
+      className="bg-primary px-4 py-4 flex flex-col md:flex-row md:justify-between md:items-centers shadow-gray-300 shadow-lg"
+    >
       <NavLogo />
       <SearchBar />
       <NavLinksContainer />
