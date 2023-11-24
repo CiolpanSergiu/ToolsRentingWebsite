@@ -24,3 +24,7 @@ body {
 .centered-absolute-text {
   @apply text-center font-bold absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full;
 }
+
+.banner-height {
+  @apply h-[calc(100vh_-_20vh)] md:h-[calc(100vh_-_40vh_+_12.5vh)];
+}

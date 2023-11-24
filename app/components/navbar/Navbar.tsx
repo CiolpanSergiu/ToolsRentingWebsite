@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav
       id="navbar"
-      className="bg-primary px-4 py-4 flex flex-col md:flex-row md:justify-between md:items-centers shadow-gray-300 shadow-lg"
+      className="bg-primary h-[20vh] md:h-[12.5vh] px-4 py-4 flex flex-col md:flex-row md:justify-between md:items-centers shadow-gray-300 shadow-lg"
     >
       <NavLogo />
       <SearchBar />

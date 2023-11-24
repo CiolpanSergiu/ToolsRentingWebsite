@@ -1,7 +1,9 @@
 import React from "react";
 
 const LandingPageOverlay = () => {
-  return <div className="absolute w-full h-full bg-black opacity-60"></div>;
+  return (
+    <div className="absolute  bg-black opacity-60 w-full banner-height"></div>
+  );
 };
 
 export default LandingPageOverlay;
