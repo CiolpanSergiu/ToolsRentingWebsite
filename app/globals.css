@@ -2,22 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
+html,
 body {
-  color: rgb(var(--foreground-rgb));
+  scroll-behavior: smooth;
+}
+
+body {
   overflow-y: scroll;
 }
 
@@ -27,4 +25,8 @@ body {
 
 .banner-height {
   @apply h-[calc(100vh_-_20vh)] md:h-[calc(100vh_-_40vh_+_12.5vh)];
+}
+
+.arrow {
+  @apply box-border text-white hover:text-primary bg-primary text-4xl p-2 hover:bg-black transition-colors duration-200 cursor-pointer;
 }

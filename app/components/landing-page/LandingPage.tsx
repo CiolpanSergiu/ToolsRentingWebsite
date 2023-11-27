@@ -7,9 +7,6 @@ const LandingPage = () => {
     <div className="mb-8">
       <Banner />
       <div>
-        <h1 className="text-5xl my-16 text-center w-full font-semibold hidden md:flex">
-          Tools Renting
-        </h1>
         {/* <div className="grid grid-rows-2 grid-cols-2 place-items-center mb-8">
           <Advantage />
           <Advantage />
