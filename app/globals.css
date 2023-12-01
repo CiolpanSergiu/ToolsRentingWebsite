@@ -30,3 +30,23 @@ body {
 .arrow {
   @apply box-border text-white hover:text-primary bg-primary text-4xl p-2 hover:bg-black transition-colors duration-200 cursor-pointer;
 }
+
+/* slider */
+
+.slider-container .slick-dots {
+  position: relative;
+  bottom: 0;
+}
+
+.slick-dots li.slick-active button {
+  transform: scale(150%);
+}
+
+.slick-track {
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.custom-slider-arrow {
+  @apply absolute top-1/4  flex items-center justify-center h-16 text-4xl text-center z-50 w-[10vw] md:w-[5vw] bg-black/50 opacity-0 hover:opacity-100 text-white transition ease-linear duration-300 cursor-pointer;
+}

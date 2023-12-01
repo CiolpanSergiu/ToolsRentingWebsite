@@ -4,6 +4,7 @@ import CardsContainer from "./containers/CardsContainer";
 import { ProductData } from "@/app/data/products-data";
 import products from "../../data/products-data";
 import { nanoid } from "nanoid";
+import SectionTitle from "../miscellaneous/SectionTitle";
 
 const ItemsPage = () => {
   const productCards = products.map((data: ProductData) => (
@@ -19,12 +20,10 @@ const ItemsPage = () => {
   ));
 
   return (
-    <div className="h-full w-full mx-auto" id="items-page">
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold block text-center underline decoration-primary decoration-4 mb-8">
-        Catalogul nostru
-      </h1>
+    <section className="h-full w-full mx-auto" id="items-page">
+      <SectionTitle titleText="Catalogul nostru" />
       <CardsContainer>{productCards}</CardsContainer>
-    </div>
+    </section>
   );
 };
 

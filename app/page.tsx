@@ -1,3 +1,4 @@
+import BrandsSlider from "./components/brands-slider/containers/Slider";
 import LandingPage from "./components/landing-page/LandingPage";
 import Navbar from "./components/navbar/Navbar";
 import ItemsPage from "./components/shop-items-page/ItemsPage";
@@ -12,6 +13,7 @@ export default function Home() {
         {/* <h1 className="text-4xl mt-8 text-center">Tools Renting</h1> */}
         <LandingPage />
         <ItemsPage />
+        <BrandsSlider />
       </main>
       <footer></footer>
     </>

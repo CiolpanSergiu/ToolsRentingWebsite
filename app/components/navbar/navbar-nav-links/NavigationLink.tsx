@@ -10,7 +10,7 @@ const NavigationLink = ({ linkText }: Props) => {
     <li>
       <Link
         href="#"
-        className="text-white rounded-xl mx-2 px-8 py-4 hover:bg-secondary transition ease-linear duration-300"
+        className="text-white rounded-md mx-2 px-8 py-4 hover:bg-black transition ease-linear duration-300"
       >
         {linkText}
       </Link>

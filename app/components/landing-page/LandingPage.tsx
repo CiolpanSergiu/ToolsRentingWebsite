@@ -4,7 +4,7 @@ import Banner from "./banner/Banner";
 
 const LandingPage = () => {
   return (
-    <div className="mb-8">
+    <section className="mb-8">
       <Banner />
       <div>
         {/* <div className="grid grid-rows-2 grid-cols-2 place-items-center mb-8">
@@ -14,7 +14,7 @@ const LandingPage = () => {
           <Advantage />
         </div>  */}
       </div>
-    </div>
+    </section>
   );
 };
 
