@@ -32,24 +32,16 @@ const BrandsSlider = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 480,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
     ],
   };
   return (
-    <div className="slider-container w-[95vw] mx-auto mb-16">
+    <div className="slider-container w-[90vw] mx-auto mb-16">
       <SectionTitle titleText="Produse de la brand-uri precum:" />
       <div className="relative">
         <Slider {...settings} className="overflow-hidden h-full">

@@ -33,6 +33,12 @@ body {
 
 /* slider */
 
+.slider-container .slick-list {
+  width: 85vw;
+  margin: 0 auto;
+  position: relative;
+}
+
 .slider-container .slick-dots {
   position: relative;
   bottom: 0;
@@ -44,9 +50,9 @@ body {
 
 .slick-track {
   margin-bottom: 1rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .custom-slider-arrow {
-  @apply absolute top-1/4  flex items-center justify-center h-16 text-4xl text-center z-50 w-[10vw] md:w-[5vw] bg-black/50 opacity-0 hover:opacity-100 text-white transition ease-linear duration-300 cursor-pointer;
+  @apply absolute top-[20%]  flex items-center justify-center h-16 text-4xl text-center z-50 w-[10vw] md:w-[5vw] bg-black/50 opacity-0 hover:opacity-100 text-white transition ease-linear duration-300 cursor-pointer;
 }
