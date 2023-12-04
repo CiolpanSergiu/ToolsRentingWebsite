@@ -12,9 +12,13 @@ const Navbar = () => {
     typeof window !== "undefined" ? window.innerWidth : 0
   );
 
+  const documentBody = document.body;
+
   const toggleMenu = () => {
-    windowWidth < 768 && setIsOpen((prevState: boolean) => !prevState);
-    document.body.classList.toggle("overflow-hidden", !isOpen);
+    if (windowWidth < 768) {
+      setIsOpen((prevState: boolean) => !prevState);
+      documentBody.classList.toggle("overflow-hidden", !isOpen);
+    }
   };
 
   useEffect(() => {
@@ -36,6 +40,7 @@ const Navbar = () => {
   useEffect(() => {
     if (windowWidth > 768) {
       setIsOpen(false);
+      documentBody.classList.toggle("overflow-hidden", false);
     }
   }, [windowWidth]);
 
