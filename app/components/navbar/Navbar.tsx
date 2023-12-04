@@ -13,7 +13,7 @@ const Navbar = () => {
   );
 
   const toggleMenu = () => {
-    setIsOpen((prevState: boolean) => !prevState);
+    windowWidth < 768 && setIsOpen((prevState: boolean) => !prevState);
     document.body.classList.toggle("overflow-hidden", !isOpen);
   };
 
