@@ -10,6 +10,11 @@
   }
 }
 
+/* this is for debugging only */
+/* * {
+  outline: 1px solid #f00 !important;
+} */
+
 html,
 body {
   scroll-behavior: smooth;
@@ -31,7 +36,13 @@ body {
   @apply box-border text-white hover:text-primary bg-primary text-4xl p-2 hover:bg-black transition-colors duration-200 cursor-pointer;
 }
 
-/* slider */
+.whiteToPrimary {
+  @apply text-white hover:text-primary transition-all duration-150 ease-linear;
+}
+
+/* Footer */
+
+/* Slider */
 
 .slider-container .slick-list {
   width: 85vw;

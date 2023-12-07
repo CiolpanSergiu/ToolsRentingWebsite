@@ -11,7 +11,7 @@ const NavigationLink = ({ linkText, handleClick }: Props) => {
     <li>
       <Link
         href="#"
-        className="text-black hover:text-primary md:w-auto md:text-white md:rounded-md md:mx-2 md:px-8 md:py-4 hover:bg-black transition ease-linear duration-300 w-full block text-xl py-2 pl-4"
+        className="text-black hover:text-primary md:w-auto md:text-white md:rounded-md md:mx-2 md:px-4 lg:px-8 md:py-4 hover:bg-black transition ease-linear duration-300 w-full block text-xl py-2 pl-4"
         onClick={() => handleClick()}
       >
         {linkText}
