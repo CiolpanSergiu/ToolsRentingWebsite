@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import NavLogo from "./navbar-logo/NavLogo";
-import NavLinksContainer from "./navbar-nav-links/NavLinksContainer";
+import NavLinksContainer from "./navbar-nav-links/MdLinksContainer";
 import SearchBar from "./search-bar/SearchBar";
-import Menu from "./burger-menu/Menu";
+import OpeningMenu from "./burger-menu/menus/opening-menu/OpeningMenu";
 import DarkOverlay from "../miscellaneous/DarkOverlay";
+import ModalLinksContainer from "./navbar-nav-links/ModalLinksContainer";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -49,12 +50,16 @@ const Navbar = () => {
     >
       <NavLogo />
       <SearchBar />
-      <NavLinksContainer isOpen={isOpen} handleClick={toggleMenu} />
-      <Menu handleClick={toggleMenu} />
+      {windowWidth > 768 ? (
+        <NavLinksContainer isOpen={isOpen} handleClick={toggleMenu} />
+      ) : (
+        <ModalLinksContainer isOpen={isOpen} handleClick={toggleMenu} />
+      )}
+      <OpeningMenu handleClick={toggleMenu} />
       {/* not the best name logic but it works because the function
           flip the variable that control whether the overlay and navigation
           menu is open or not */}
-      {isOpen && <DarkOverlay closeOverlay={toggleMenu} />}
+      {/* {isOpen && <DarkOverlay closeOverlay={toggleMenu} />} */}
     </nav>
   );
 };

@@ -1,0 +1,111 @@
+// .menu {
+//   * {
+//   width: 40px
+// }
+//   :nth-child(1) {
+//     top: 28px;
+//   }
+//   :nth-child(2),
+//   :nth-child(3) {
+//     top: 18px;
+//   }
+//   :nth-child(4) {
+//     top: 8px;
+//   }
+
+//   &:hover {
+//     :nth-child(1) {
+//       transform: translateY(-1rem);
+//       opacity: 0;
+//     }
+//     :nth-child(2) {
+//       transform: rotate(45deg);
+//     }
+//     :nth-child(3) {
+//       transform: rotate(-45deg);
+//     }
+//     :nth-child(4) {
+//       transform: translateY(1rem);
+//       opacity: 0;
+//     }
+//   }
+// }
+
+// .menu {
+//   * {
+//     transition: all 0.15s ease-in-out;
+//   }
+
+//   :nth-child(1) {
+//     top: 8px;
+//     width: 20px;
+//   }
+//   // :nth-child(2),
+//   :nth-child(2) {
+//     top: 16px;
+//     width: 40px;
+//   }
+//   :nth-child(3) {
+//     top: 24px;
+//     width: 30px;
+//   }
+
+//   &:hover {
+//     :nth-child(1),
+//     :nth-child(3) {
+//       width: 40px;
+//     }
+//     :nth-child(2) {
+//       width: 30px;
+//       transform: translateX(15%);
+//     }
+//   }
+// }
+
+.openingMenu {
+  * {
+    transition: all 0.15s ease-in-out;
+  }
+
+  &:hover {
+    :nth-child(1) {
+      animation: jiggleMenu 0.3s ease-in-out forwards;
+    }
+    :nth-child(2) {
+      transform: translateX(50%);
+      opacity: 0;
+    }
+    :nth-child(3) {
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes jiggleMenu {
+  0% {
+    top: -50%;
+    opacity: 0.25;
+  }
+  15% {
+    top: -25%;
+    opacity: 0.5;
+  }
+  30% {
+    opacity: 0.75;
+    top: 0%;
+  }
+  45% {
+    top: -35%;
+  }
+  60% {
+    top: 0%;
+  }
+  75% {
+    top: -20%;
+  }
+  100% {
+    top: -10%;
+    opacity: 1;
+  }
+}

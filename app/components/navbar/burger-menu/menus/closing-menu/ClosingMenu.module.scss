@@ -1,0 +1,104 @@
+.closingMenu {
+  * {
+    transition: all 0.15s ease-in-out;
+  }
+
+  :nth-child(1),
+  :nth-child(2) {
+    top: -100%;
+  }
+
+  &:hover {
+    :nth-child(1) {
+      opacity: 1;
+      animation: textFall 0.35s ease-in-out forwards;
+    }
+    :nth-child(2) {
+      animation: textDrop 0.35s ease-in-out forwards;
+      animation-delay: 0.35s;
+    }
+    :nth-child(3) {
+      transform: translateX(50%);
+      opacity: 0;
+    }
+    :nth-child(4) {
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+    :nth-child(5) {
+      animation: controlHatch 0.35s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes textFall {
+  0% {
+    opacity: 1;
+  }
+  15% {
+    top: -50%;
+  }
+  30% {
+    top: -15%;
+  }
+  45% {
+    top: -30%;
+  }
+  60% {
+    top: -15%;
+  }
+  75% {
+    top: 0%;
+  }
+  90% {
+    top: 40%;
+    opacity: 0.75;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes controlHatch {
+  0% {
+    width: 100%;
+  }
+  25% {
+    width: 100%;
+  }
+  50% {
+    width: 50%;
+  }
+  75% {
+    width: 1px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes textDrop {
+  0% {
+  }
+  15% {
+    top: -50%;
+  }
+  30% {
+    top: -15%;
+  }
+  45% {
+    top: -45%;
+    transform: rotate(15deg);
+  }
+  60% {
+    top: -25%;
+    transform: rotate(-15deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(0deg);
+    top: -15%;
+    opacity: 1;
+  }
+}
