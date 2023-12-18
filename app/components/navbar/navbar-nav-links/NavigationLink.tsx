@@ -3,15 +3,18 @@ import React from "react";
 
 interface Props {
   linkText: string;
+  textSize?: string;
   handleClick: () => void;
 }
 
-const NavigationLink = ({ linkText, handleClick }: Props) => {
+const NavigationLink = ({ linkText, textSize, handleClick }: Props) => {
   return (
     <li>
       <Link
         href="#"
-        className="text-black hover:text-primary md:w-auto md:text-white md:rounded-md md:mx-2 md:px-4 lg:px-8 md:py-4 hover:bg-zinc-200 md:hover:bg-black transition ease-linear duration-300 w-full block text-xl py-2 pl-4"
+        className={`text-black z-50 hover:text-primary md:pl-6 lg:pl-8 hover:bg-zinc-200 transition ease-linear duration-300 w-full block ${
+          textSize ? textSize : "text-xl"
+        } py-2 pl-4`}
         onClick={() => handleClick()}
       >
         {linkText}

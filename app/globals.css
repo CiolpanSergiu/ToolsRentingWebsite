@@ -28,8 +28,14 @@ body {
   @apply text-center font-bold absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full;
 }
 
+/* after some research i set the navbar to have only 2 values 
+    - 20vh on small screens
+    - 12.5vh on bigger screens 
+  this class make the banner image have a height of screen - navbar height
+  may need some rework if the navbar content will change in the future
+*/
 .banner-height {
-  @apply h-[calc(100vh_-_20vh)] md:h-[calc(100vh_-_40vh_+_12.5vh)];
+  @apply h-[calc(100vh_-_20vh)] md:h-[calc(100vh_-_12.5vh)];
 }
 
 .arrow {

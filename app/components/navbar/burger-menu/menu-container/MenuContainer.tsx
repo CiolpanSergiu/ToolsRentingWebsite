@@ -19,7 +19,7 @@ const MenuContainer = ({
 }: Props) => {
   return (
     <div
-      className={`group flex flex-col items-center cursor-pointer md:hidden z-50 ${customStyle} absolute ${
+      className={`group flex flex-col items-center cursor-pointer ${customStyle} absolute md:top-8 md:right-8 ${
         top ? top : ""
       } ${left ? left : ""} ${right ? right : ""}`}
       onClick={() => handleClick()}

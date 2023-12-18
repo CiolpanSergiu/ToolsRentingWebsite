@@ -13,8 +13,8 @@ const OpeningMenu = ({ handleClick }: Props) => {
 
   return (
     <MenuContainer
-      top="top-7"
-      left="4"
+      top="top-7 md:top-0"
+      right="right-8 md:right-0"
       handleClick={handleClick}
       customStyle={customStyle}
     >

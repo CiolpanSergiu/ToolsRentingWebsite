@@ -9,7 +9,7 @@ const Bar = ({ bgColor }: Props) => {
     <span
       className={`${
         bgColor === "bg-white" ? "bg-white" : "bg-black"
-      } flex h-1 my-[2px] rounded transition ease-in-out duration-300 w-[52px]`}
+      } flex h-1 my-[2px] rounded transition ease-in-out duration-300 w-[52px] max-w-[52px]`}
     />
   );
 };
