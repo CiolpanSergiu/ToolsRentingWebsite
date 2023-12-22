@@ -17,7 +17,7 @@ const productsData: ProductData[] = [
     imgUrl:
       "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imgAlt: "Hand Tool",
-    category: "hand tool",
+    category: "machinery",
     productName: "Hammer 1",
     price: 123,
   },
@@ -44,7 +44,7 @@ const productsData: ProductData[] = [
     imgUrl:
       "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imgAlt: "Hand Tool",
-    category: "hand tool",
+    category: "garden tool",
     productName: "Hammer 4",
     price: 123,
   },
@@ -53,7 +53,7 @@ const productsData: ProductData[] = [
     imgUrl:
       "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imgAlt: "Hand Tool",
-    category: "hand tool",
+    category: "heavy duty tool",
     productName: "Hammer 5",
     price: 123,
   },
@@ -62,7 +62,7 @@ const productsData: ProductData[] = [
     imgUrl:
       "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imgAlt: "Hand Tool",
-    category: "hand tool",
+    category: "car",
     productName: "Hammer 6",
     price: 123,
   },

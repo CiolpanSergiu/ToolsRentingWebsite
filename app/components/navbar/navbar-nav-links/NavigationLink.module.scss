@@ -1,0 +1,14 @@
+.navLink {
+  :nth-child(2) {
+    animation: becomeInvisible 0.1s ease-in-out forwards;
+  }
+}
+
+@keyframes becomeInvisible {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

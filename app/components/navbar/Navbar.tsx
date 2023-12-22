@@ -21,6 +21,9 @@ const Navbar = () => {
       ? "bigScreen"
       : "smallScreen"
   );
+  // will consider using redux or context later to prevent repetition
+  // like in navigation links container and what will come
+  const [searchData, setSearchData] = useState<string>("");
 
   // this deals with opening and closing the menu;
   // it also create an effect where when the menu is open,
@@ -74,13 +77,21 @@ const Navbar = () => {
     }
   }, [windowWidth]);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchData(e.target.value);
+  };
+
   return (
     <nav
       id="navbar"
       className="bg-primary overflow-hidden h-[20vh] md:h-[12.5vh] px-8 md:pr-[10%] py-4 flex flex-col md:flex-row md:justify-between md:items-center shadow-gray-300 shadow-lg"
     >
       <NavLogo />
-      <SearchBar />
+      <SearchBar
+        handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(e)
+        }
+      />
       <OpeningMenu handleClick={toggleMenu} />
       <NavLinksContainer handleClick={toggleMenu} isOpen={isOpen}>
         <ClosingMenu handleClick={toggleMenu} />

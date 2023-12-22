@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import NavigationLink from "./NavigationLink";
 import { nanoid } from "nanoid";
+import NavbarSectionTitle from "../titles/NavbarSectionTitle";
+import SearchBar from "../search-bar/SearchBar";
+import RecommendationsContainer from "../search-recommendations/RecommendationsContainer";
 
 interface Props {
   handleClick: () => void;
@@ -10,51 +13,79 @@ interface Props {
 // note for me: opacity-0 is so that when the screen becomes md, the
 // links container won't be seen as it moves to the left due to md:-left-full
 const NavLinksContainer = ({ handleClick, isOpen, children }: Props) => {
+  const [searchData, setSearchData] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchData(e.target.value);
+  };
+
   return (
     <div
       className={`top-0 pt-[100px] left-0 md:w-[40%] lg:w-1/3
-      h-screen bg-white absolute
-       text-center md:text-left md:scale-100 w-screen
+      h-screen bg-white absolute capitalize
+       text-left md:text-left md:scale-100 w-screen
        ${!isOpen && "scale-0 opacity-0 md:-left-full"}
        z-50 transition-all duration-200 ease-linear py-[100px]`}
     >
-      <h1>Navigation Links</h1>
-      <ul>
-        {children}
-        <NavigationLink
-          key={nanoid()}
-          linkText="Home"
-          handleClick={() => handleClick()}
+      {children}
+      <SearchBar
+        border="border-black border-2"
+        width="w-[80%]"
+        handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(e)
+        }
+      />
+      <div className="h-10" />
+      {!searchData ? (
+        <>
+          <NavbarSectionTitle text="navigation links" />
+          <ul className="">
+            <NavigationLink
+              key={nanoid()}
+              linkText="home"
+              handleClick={() => handleClick()}
+            />
+            <NavigationLink
+              key={nanoid()}
+              linkText="about"
+              handleClick={() => handleClick()}
+            />
+            <NavigationLink
+              key={nanoid()}
+              linkText="store"
+              handleClick={() => handleClick()}
+            />
+          </ul>
+          <NavbarSectionTitle text="categories" />
+          <ul className="">
+            <NavigationLink
+              key={nanoid()}
+              linkText="hand tools"
+              handleClick={() => handleClick()}
+            ></NavigationLink>
+            <NavigationLink
+              key={nanoid()}
+              linkText="garden tools"
+              handleClick={() => handleClick()}
+            ></NavigationLink>
+            <NavigationLink
+              key={nanoid()}
+              linkText="heavy duty tools"
+              handleClick={() => handleClick()}
+            ></NavigationLink>
+            <NavigationLink
+              key={nanoid()}
+              linkText="cars and machineries"
+              handleClick={() => handleClick()}
+            ></NavigationLink>
+          </ul>
+        </>
+      ) : (
+        <RecommendationsContainer
+          handleLinkClick={handleClick}
+          toSearch={searchData}
         />
-        <NavigationLink
-          key={nanoid()}
-          linkText="About"
-          handleClick={() => handleClick()}
-        />
-        <NavigationLink
-          key={nanoid()}
-          linkText="Store"
-          handleClick={() => handleClick()}
-        />
-      </ul>
-      <h1>Categories</h1>
-      <ul>
-        <NavigationLink
-          key={nanoid()}
-          linkText="Hand Tools"
-          handleClick={() => handleClick()}
-        ></NavigationLink>
-        <NavigationLink
-          key={nanoid()}
-          linkText="Garden Tools"
-          handleClick={() => handleClick()}
-        ></NavigationLink>
-        <NavigationLink
-          key={nanoid()}
-          linkText="Heavy Duty Tools"
-          handleClick={() => handleClick()}
-        ></NavigationLink>
-      </ul>
+      )}
     </div>
   );
 };
