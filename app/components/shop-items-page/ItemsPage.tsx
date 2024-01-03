@@ -20,7 +20,7 @@ const ItemsPage = () => {
   ));
 
   return (
-    <section className="h-full w-full mx-auto" id="items-page">
+    <section className="h-full w-full mx-auto bg-zinc-50 pt-10" id="items-page">
       <SectionTitle titleText="Catalogul nostru" />
       <CardsContainer>{productCards}</CardsContainer>
     </section>

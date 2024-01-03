@@ -45,8 +45,9 @@ const BrandsSlider = () => {
       <SectionTitle titleText="Produse de la brand-uri precum:" />
       <div className="relative">
         <Slider {...settings} className="overflow-hidden h-full">
-          {" "}
-          <SliderImgCard /> <SliderImgCard /> <SliderImgCard />{" "}
+          <SliderImgCard />
+          <SliderImgCard />
+          <SliderImgCard />
           <SliderImgCard />
           <SliderImgCard />
           <SliderImgCard />

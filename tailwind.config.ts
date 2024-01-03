@@ -44,6 +44,12 @@ const config: Config = {
         colorThree: "#BFD7EA",
         colorFour: "#0B3954",
       },
+      height: {
+        smScreenNav: "20vh",
+        smScreenNoNav: "80vh",
+        mdScreenNav: "12.5vh",
+        mdScreenNoNav: "87.5vh",
+      },
     },
   },
   plugins: [],

@@ -4,6 +4,8 @@ import { nanoid } from "nanoid";
 import NavbarSectionTitle from "../titles/NavbarSectionTitle";
 import SearchBar from "../search-bar/SearchBar";
 import RecommendationsContainer from "../search-recommendations/RecommendationsContainer";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 interface Props {
   handleClick: () => void;
@@ -13,11 +15,7 @@ interface Props {
 // note for me: opacity-0 is so that when the screen becomes md, the
 // links container won't be seen as it moves to the left due to md:-left-full
 const NavLinksContainer = ({ handleClick, isOpen, children }: Props) => {
-  const [searchData, setSearchData] = useState<string>("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchData(e.target.value);
-  };
+  const searchText = useSelector((state: RootState) => state.searchText.value);
 
   return (
     <div
@@ -28,15 +26,9 @@ const NavLinksContainer = ({ handleClick, isOpen, children }: Props) => {
        z-50 transition-all duration-200 ease-linear py-[100px]`}
     >
       {children}
-      <SearchBar
-        border="border-black border-2"
-        width="w-[80%]"
-        handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChange(e)
-        }
-      />
+      <SearchBar border="border-black border-2" width="w-[80%]" />
       <div className="h-10" />
-      {!searchData ? (
+      {!searchText ? (
         <>
           <NavbarSectionTitle text="navigation links" />
           <ul className="">
@@ -81,10 +73,7 @@ const NavLinksContainer = ({ handleClick, isOpen, children }: Props) => {
           </ul>
         </>
       ) : (
-        <RecommendationsContainer
-          handleLinkClick={handleClick}
-          toSearch={searchData}
-        />
+        <RecommendationsContainer handleLinkClick={handleClick} />
       )}
     </div>
   );

@@ -34,9 +34,6 @@ body {
   this class make the banner image have a height of screen - navbar height
   may need some rework if the navbar content will change in the future
 */
-.banner-height {
-  @apply h-[calc(100vh_-_20vh)] md:h-[calc(100vh_-_12.5vh)];
-}
 
 .arrow {
   @apply box-border text-white hover:text-primary bg-primary text-4xl p-2 hover:bg-black transition-colors duration-200 cursor-pointer;

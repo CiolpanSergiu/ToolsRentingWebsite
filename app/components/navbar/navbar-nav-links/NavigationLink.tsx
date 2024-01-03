@@ -12,7 +12,7 @@ const NavigationLink = ({ linkText, textSize, handleClick }: Props) => {
   return (
     <li
       onClick={() => handleClick()}
-      className={`group cursor-pointer text-black z-50 hover:text-primary hover:bg-zinc-200 transition ease-linear duration-300 w-full flex items-center ${
+      className={`group cursor-pointer capitalize text-black z-50 hover:text-primary hover:bg-zinc-200 transition ease-linear duration-300 w-full flex items-center ${
         textSize ? textSize : "text-xl"
       } py-2 pl-16 md:pl-8`}
     >
