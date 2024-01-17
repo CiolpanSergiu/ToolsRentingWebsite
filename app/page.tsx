@@ -13,7 +13,6 @@ export default function Home() {
           <Navbar></Navbar>
         </header>
         <main className="max-w-screen">
-          {/* <h1 className="text-4xl mt-8 text-center">Tools Renting</h1> */}
           <LandingPage />
           <ItemsPage />
           <BrandsSlider />

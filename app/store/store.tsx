@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchbarContentReducer from "./features/searchbarContentSlice";
+import searchbarContentReducer from "./features/searchbar-filter/searchbarContentSlice";
+import navbarStateReducer from "./features/navbar-opening-state/isNavbarOpenSlice";
 
 export const store = () => {
   return configureStore({
     reducer: {
       searchText: searchbarContentReducer,
+      navbarState: navbarStateReducer,
     },
   });
 };

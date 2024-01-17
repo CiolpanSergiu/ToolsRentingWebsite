@@ -6,9 +6,14 @@ import SearchBar from "./search-bar/SearchBar";
 import OpeningMenu from "./burger-menu/menus/opening-menu/OpeningMenu";
 import DarkOverlay from "../miscellaneous/DarkOverlay";
 import ClosingMenu from "./burger-menu/menus/closing-menu/ClosingMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/store/store";
+import { toggleNavbar } from "@/app/store/features/navbar-opening-state/isNavbarOpenSlice";
+import { clearSearchbarContent } from "@/app/store/features/searchbar-filter/searchbarContentSlice";
+import PhoneNumber from "../miscellaneous/PhoneNumber";
+import SearchingModal from "./search-bar/SearchingModal";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   // this window size and width may need a rework in the future
   // however, as it is now, it does it's job
   const [windowWidth, setWindowWidth] = useState<number>(
@@ -22,12 +27,24 @@ const Navbar = () => {
       : "smallScreen"
   );
 
-  // this deals with opening and closing the menu;
-  // it also create an effect where when the menu is open,
-  // the scroll will be unavailable;
+  const dispatch = useDispatch();
+  const isOpen = useSelector((state: RootState) => state.navbarState.value);
+  const searchbarContent = useSelector(
+    (state: RootState) => state.searchText.value
+  );
+
+  if (!searchbarContent && isOpen) {
+    document.body.classList.toggle("overflow-hidden", true);
+  }
+
   const toggleMenu = () => {
-    setIsOpen((prevState: boolean) => !prevState);
-    document.body.classList.toggle("overflow-hidden", !isOpen);
+    dispatch(toggleNavbar());
+    dispatch(clearSearchbarContent());
+  };
+
+  const closeOverlay = () => {
+    dispatch(toggleNavbar(false));
+    dispatch(clearSearchbarContent());
   };
 
   const toogleWindowSize = () => {
@@ -58,18 +75,12 @@ const Navbar = () => {
   // the following useEffect check if the previous screen was a big one or
   // a small one and auto close the navbar only when the screen size changed
   // if it was already open;
-
   useEffect(() => {
-    if (windowWidth < 768 && prevWindowSize === "bigScreen") {
-      setIsOpen(false);
-      toogleWindowSize();
-    }
-  }, [windowWidth]);
-
-  useEffect(() => {
-    if (windowWidth >= 768 && prevWindowSize === "smallScreen") {
-      setIsOpen(false);
-      document.body.classList.toggle("overflow-hidden", false);
+    if (
+      (windowWidth < 768 && prevWindowSize === "bigScreen") ||
+      (windowWidth >= 768 && prevWindowSize === "smallScreen")
+    ) {
+      dispatch(toggleNavbar(false));
       toogleWindowSize();
     }
   }, [windowWidth]);
@@ -77,17 +88,35 @@ const Navbar = () => {
   return (
     <nav
       id="navbar"
-      className={`bg-primary overflow-hidden h-smScreenNav md:h-mdScreenNav px-8 md:pr-[10%] py-4 flex flex-col md:flex-row md:justify-between md:items-center shadow-gray-300 shadow-lg`}
+      className="grid bg-transparent relative z-50 px-8
+       md:pr-[10%] py-4 flex-col lg:grid lg:grid-cols-[10%_25%_65%]
+        md:grid md:grid-cols-[10%_40%_40%] md:place-items-center"
     >
       <NavLogo />
+      <PhoneNumber />
       <SearchBar />
       <OpeningMenu handleClick={toggleMenu} />
-      <NavLinksContainer handleClick={toggleMenu} isOpen={isOpen}>
+      <NavLinksContainer isOpen={isOpen}>
         <ClosingMenu handleClick={toggleMenu} />
       </NavLinksContainer>
+      {searchbarContent && !isOpen && (
+        <div className="">
+          <img
+            className="hidden absolute top-0 left-0 w-screen h-screen z-30 none md:flex"
+            src="https://images.unsplash.com/photo-1645651964715-d200ce0939cc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <div className="hidden md:flex w-[70vw] absolute z-40 md:top-10 md:left-1/2 md:transfrom md:-translate-x-1/2">
+            <SearchBar />
+          </div>
+        </div>
+      )}
+      <SearchingModal />
       {/* this is not inside the prev div so that the overlay won't 
           have the same left-right drag transition as the navLinksContainer */}
-      {isOpen && windowWidth > 768 && <DarkOverlay closeOverlay={toggleMenu} />}
+      {(isOpen || searchbarContent) && windowWidth > 768 && (
+        <DarkOverlay closeOverlay={closeOverlay} />
+      )}
     </nav>
   );
 };

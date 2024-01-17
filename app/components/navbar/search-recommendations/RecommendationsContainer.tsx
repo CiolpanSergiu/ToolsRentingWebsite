@@ -3,14 +3,11 @@ import NavbarSectionTitle from "../titles/NavbarSectionTitle";
 import productsData, { ProductData } from "../../../data/products-data";
 import NavigationLink from "../navbar-nav-links/NavigationLink";
 import EmptyReccomendationsText from "./EmptyReccomendationsText";
+import { nanoid } from "nanoid";
 import { RootState } from "@/app/store/store";
 import { useSelector } from "react-redux";
 
-interface Props {
-  handleLinkClick: () => void;
-}
-
-const RecommendationsContainer = ({ handleLinkClick }: Props) => {
+const RecommendationsContainer = () => {
   const toSearch = useSelector((state: RootState) => state.searchText.value);
 
   // this create the NavigationLink for each object in the received array
@@ -21,7 +18,7 @@ const RecommendationsContainer = ({ handleLinkClick }: Props) => {
     return data.map((product) => {
       return (
         <NavigationLink
-          handleClick={handleLinkClick}
+          key={nanoid()}
           linkText={
             linksCategory === "productName"
               ? product.productName
@@ -79,7 +76,7 @@ const RecommendationsContainer = ({ handleLinkClick }: Props) => {
   );
 
   return (
-    <div>
+    <div className="">
       <NavbarSectionTitle text="Products" />
       {productsRecommendations.length > 0 ? (
         productsRecommendations

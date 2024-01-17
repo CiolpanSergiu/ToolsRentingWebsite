@@ -8,19 +8,17 @@ const SearchingModal = () => {
     (state: RootState) => state.searchText.value
   );
 
+  const isNavOpen: boolean = useSelector(
+    (state: RootState) => state.navbarState.value
+  );
+
   return (
     <div
-      className={`bg-white w-full overflow-y-scroll md:w-[80vw] left-0 top-[20vh] md:top-[12.5vh] z-50 h-[80vh] md:h-[87.5vh] md:rounded-lg absolute ${
-        searchText ? "flex" : "hidden"
-      } transition duration-300 ease-linear`}
+      className={`bg-white py-10 px-4 overflow-y-scroll w-full md:w-[60vw] left-0 md:left-1/2 md:-translate-x-1/2 top-[20vh] md:top-[15vh] z-50 h-smScreenNoNav md:h-[70vh] md:rounded-lg absolute ${
+        searchText && !isNavOpen ? " scale-100" : "scale-0"
+      } transition duration-100 ease-linear z-50`}
     >
-      {searchText && (
-        <RecommendationsContainer
-          handleLinkClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
-      )}
+      <RecommendationsContainer />
     </div>
   );
 };

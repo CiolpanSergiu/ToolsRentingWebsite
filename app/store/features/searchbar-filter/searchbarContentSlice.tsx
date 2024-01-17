@@ -15,10 +15,19 @@ export const searchBarContentSlice = createSlice({
   reducers: {
     handleChange: (state, action: PayloadAction<string>) => {
       state.value = action.payload;
+      if (state.value) {
+        document.body.classList.toggle("overflow-hidden", true);
+      } else {
+        document.body.classList.toggle("overflow-hidden", false);
+      }
+    },
+    clearSearchbarContent: (state) => {
+      state.value = "";
     },
   },
 });
 
-export const { handleChange } = searchBarContentSlice.actions;
+export const { handleChange, clearSearchbarContent } =
+  searchBarContentSlice.actions;
 
 export default searchBarContentSlice.reducer;
